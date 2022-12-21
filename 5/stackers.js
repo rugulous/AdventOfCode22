@@ -49,16 +49,17 @@ console.log(stacks);
 for(let i = stackInfo.maxSize + 2; i < input.length; i++){
 	const command = input[i].split(" ");
 
-	const number = parseInt(command[1]);
 	const src = parseInt(command[3]) - 1;
+	const number = Math.min(parseInt(command[1]), stacks[src].length);
 	const dest = parseInt(command[5]) - 1;
 
+	let buffer = [];
 	for(let j = 0; j < number; j++){
-		if(stacks[src].length === 0){
-			break;
-		}
+		buffer.push(stacks[src].pop());		
+	}
 
-		stacks[dest].push(stacks[src].pop());		
+	for(let j = 0; j < number; j++){
+		stacks[dest].push(buffer.pop());
 	}
 }
 
