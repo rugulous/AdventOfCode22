@@ -7,7 +7,7 @@ const input = readInput()[0];
 let index = -1;
 
 for(let i = 0; i < input.length; i++){
-	const chunk = input.slice(i, i + 4);
+	const chunk = input.slice(i, i + 14);
 	
 	let found = false;
 	for(let j = 0; j < chunk.length; j++){
