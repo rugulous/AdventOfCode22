@@ -3,7 +3,17 @@
 const {readInput} = require('../helper');
 
 function rangeContains(rangeOne, rangeTwo){
-	return parseInt(rangeOne[0]) <= parseInt(rangeTwo[0]) && parseInt(rangeOne[1]) >= parseInt(rangeTwo[1]);
+	const r1 = {
+		start: parseInt(rangeOne[0]),
+		end: parseInt(rangeOne[1])
+	};
+
+	const r2 = {
+		start: parseInt(rangeTwo[0]),
+		end: parseInt(rangeTwo[1])
+	};
+
+	return (r1.start <= r2.end && r1.end >= r2.start);
 }
 
 let count = 0;
