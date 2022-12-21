@@ -1,6 +1,6 @@
 'use strict';
 
-const fs = require('fs');
+const { readInput } = require('../helper.js');
 
 const elves = [];
 
@@ -14,8 +14,8 @@ const current = {
 	total: 0
 };
 
-const input = fs.readFileSync('./input.txt', {encoding:'utf8', flag:'r'}).replaceAll("\r","").split("\n");
-input.forEach(i => {
+
+readInput().forEach(i => {
 	if(i.trim() === ""){
 		if(current.total > max.total){
 			max.index = current.index;
