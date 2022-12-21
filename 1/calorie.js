@@ -2,6 +2,8 @@
 
 const fs = require('fs');
 
+const elves = [];
+
 const max = {
 	index: -1,
 	total: -1
@@ -20,6 +22,8 @@ input.forEach(i => {
 			max.total = current.total;
 		}
 
+		elves.push(current.total);
+
 		current.index += 1;
 		current.total = 0;
 
@@ -29,4 +33,7 @@ input.forEach(i => {
 	current.total += parseFloat(i);
 });
 
-console.log(max);
+elves.sort((a,b) => b - a);
+
+console.log(`The elf with the most calories is Elf number ${max.index}, carrying ${max.total} calories`);
+console.log(`The top 3 elves are carrying ${elves[0]}, ${elves[1]} and ${elves[2]} calories, with a total of ${elves.splice(0, 3).reduce((a,b) => a + b, 0)}`);
