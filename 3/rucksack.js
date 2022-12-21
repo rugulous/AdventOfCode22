@@ -1,6 +1,6 @@
 'use strict';
 
-const {readInput} = require('../helper');
+const {readInput, getValueFromChar} = require('../helper');
 
 let total = 0;
 readInput().forEach(line => {
@@ -10,17 +10,8 @@ readInput().forEach(line => {
 	for(let i = 0; i < compartmentOne.length; i++){
 		const char = compartmentOne[i];
 
-		if(compartmentTwo.indexOf(char) > -1){
-			let value = char.charCodeAt(0) - 64;
-			
-			if(value > 26){
-				//lowercase
-				value -= 32;
-			} else {
-				value += 26;
-			}
-
-			total += value;
+		if(compartmentTwo.indexOf(char) > -1){	
+			total += getValueFromChar(char, {lowercaseLower: true});
 			break;
 		}
 	}
